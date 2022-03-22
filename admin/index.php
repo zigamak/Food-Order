@@ -1,5 +1,5 @@
 <?php
-include("partials/menu.php")
+include("partials/menu.php");
 ?>
 
 <!DOCTYPE html>

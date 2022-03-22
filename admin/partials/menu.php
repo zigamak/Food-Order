@@ -1,3 +1,4 @@
+<?php include('config/constants.php'); ?>
 <link rel="stylesheet" href="../css/admin.css">
 <!--Menu Section Starts-->
 <div class="menu text-center">
