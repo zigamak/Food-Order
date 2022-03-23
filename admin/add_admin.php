@@ -52,7 +52,7 @@ include("partials/footer.php")
 
         //Execute Query and Save Data in the Database
         
-        $res = mysqli_query($conn,$sql ) or die(mysqli_error( ));
+        $res = mysqli_query($conn,$sql ) or die(mysqli_error($conn));
         
     }
     
