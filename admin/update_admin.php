@@ -34,14 +34,10 @@
                 </tr>
 
                 <tr>
-                    <input type="te" name="id" value="<?php echo $id; ?>">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <td colspan="2"><input type="submit" value="Update Admin" class="btn-secondary"></td>
                 </tr>
-                <?php
-if(isset($_POST['submit'])){
-    echo "Button CLicked";
-}
-?>
+                
             </table>
         </form>
     </div>
@@ -49,5 +45,9 @@ if(isset($_POST['submit'])){
 
 
 
-
+<?php
+if(isset($_POST["submit"])){
+    echo "Button CLicked";
+}
+?>
 <?php include("partials/footer.php"); ?>
