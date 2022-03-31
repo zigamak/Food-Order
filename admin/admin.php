@@ -17,6 +17,16 @@
                 echo $_SESSION['delete'];
                 unset ($_SESSION['delete']);
             }
+
+            if (isset($_SESSION['update'])){
+                echo $_SESSION['update'];
+                unset ($_SESSION['update']);
+            }
+
+            if (isset($_SESSION['user-not-found'])){
+                echo $_SESSION['user-not-found'];
+                unset ($_SESSION['user-not-found']);
+            }
             
             ?> <br> <br>
 
@@ -49,6 +59,7 @@
                                     <td><?php echo $full_name; ?></td>
                                     <td><?php echo $username ?></td>
                                     <td>
+                                    <a href="<?php  echo SITEURL; ?>admin/password_admin.php? id=<?php echo $id;   ?>" class="btn-primary   "> Change Password</a> 
                                         <a href="<?php  echo SITEURL; ?>admin/update_admin.php? id=<?php echo $id;   ?>" class="btn-secondary   "> Update Admin</a> 
                                         <a href="<?php  echo SITEURL; ?>admin/delete_admin.php? id=<?php echo $id;   ?>" class="btn-danger"> Delete Admin</a> 
                                     </td>
