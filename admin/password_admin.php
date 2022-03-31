@@ -57,9 +57,30 @@ if (isset($_POST['submit'])){
     if($res==true){
         $count=mysqli_num_rows($res);
         if($count==1){
-            echo "User Found";
+           
+
+            //check whether the new password and confirm password match or nor
+            if($new_password==$confirm_password){
+                //update the password
+                $sql2="UPDATE tbl_admin SET
+                password='$new_password' WHERE id=$id";
+                $res2=mysqli_query($conn, $sql2);
+                if ($res2==true){
+                    $_SESSION["change_password"]="<div class='success'>Password Changed Successfully";
+                    //Redirect the user
+                    header('location:'.SITEURL.'admin/admin.php');
+                }else{
+                    $_SESSION["change_password"]="<div class='error'>Failed to Change Password";
+                    //Redirect the user
+                    header('location:'.SITEURL.'admin/admin.php');
+                }
+            }else{
+                $_SESSION["password_not_matched"]="<div class='error'>Password did not match";
+                //Redirect the user
+                header('location:'.SITEURL.'admin/admin.php');
+            }
         }else{
-            $_SESSION["user-not-found"]="<div class='error'>User Not Found";
+            $_SESSION["user_not_found"]="<div class='error'>User Not Found";
             //Redirect the user
             header('location:'.SITEURL.'admin/admin.php');
         }

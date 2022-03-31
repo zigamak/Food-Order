@@ -23,11 +23,20 @@
                 unset ($_SESSION['update']);
             }
 
-            if (isset($_SESSION['user-not-found'])){
-                echo $_SESSION['user-not-found'];
-                unset ($_SESSION['user-not-found']);
+            if (isset($_SESSION['user_not_found'])){
+                echo $_SESSION['user_not_found'];
+                unset ($_SESSION['user_not_found']);
             }
             
+            if (isset($_SESSION['password_not_matched'])){
+                echo $_SESSION['password_not_matched'];
+                unset ($_SESSION['password_not_matched']);
+            }
+            
+            if (isset($_SESSION['change_password'])){
+                echo $_SESSION['change_password'];
+                unset ($_SESSION['change_password']);
+            }
             ?> <br> <br>
 
             <!-- Button to add Admin -->

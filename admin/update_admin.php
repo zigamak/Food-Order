@@ -64,7 +64,7 @@ if(isset($_POST["submit"])){
         header('location:'.SITEURL.'admin/admin.php');
     }
     else{
-        $_SESSION['update']="<div class= 'error'> Failed to Delet Admin.</div>";
+        $_SESSION['update']="<div class= 'error'> Failed to Delete Admin.</div>";
         header('location:'.SITEURL.'admin/admin.php');
     }
 }
