@@ -12,7 +12,7 @@ include('config/constants.php');
     <title>Login | Zimato</title>
     <link rel="stylesheet" href="../css/admin.css">
 </head>
-<body>
+<body class="body__login">
     <?php
         if(isset($_SESSION['login'])){
             echo $_SESSION['login'];
@@ -23,14 +23,14 @@ include('config/constants.php');
     <div class="container">
         <div class="screen">
             <div class="screen__content">
-                <form class="login"><h1>Login</h1>
+                <form class="login" method="POST"><h1>Login</h1>
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" placeholder="Username" name="username">
+                        <input type="text" name="username" class="login__input" placeholder="Username" >
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password" name="password">
+                        <input type="password" name="password" class="login__input" placeholder="Password" >
                     </div>
                     <button class="button login__submit" name="submit">
                         <span class="button__text">Log In Now</span>
@@ -45,7 +45,7 @@ include('config/constants.php');
                 <span class="screen__background__shape screen__background__shape2"></span>
                 <span class="screen__background__shape screen__background__shape1"></span>
             </div>		
-            <p class="text-center">Created by <a href="www.zigamak.github.io">Ziga</a> </p> 
+            <p class="text-center">Created by <a href="www.zigamak.github.io">Ziga</a> </p>  
         </div>
         
        
@@ -57,7 +57,7 @@ include('config/constants.php');
 <?php
 if (isset($_POST['submit'])){
     $username= $_POST['username'];
-    $password=$_POST['password'];
+    $password=md5($_POST['password']);
 
     $sql="SELECT * FROM tbl_admin WHERE username='$username' AND password= '$password'";
 
