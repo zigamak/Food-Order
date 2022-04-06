@@ -18,6 +18,11 @@ include('config/constants.php');
             echo $_SESSION['login'];
             unset($_SESSION['login']);
         }
+
+        if(isset($_SESSION['no-login-message'])){
+            echo $_SESSION['no-login-message'];
+            unset($_SESSION['no-login-message']);
+        }
     ?>
     
     <div class="container">
@@ -65,6 +70,7 @@ if (isset($_POST['submit'])){
     $count=mysqli_num_rows($res);
     if ($count==1){
         $_SESSION['login']="<div class='success'>Login Succesful.</div>";
+        $_SESSION['user']=$username;
         header('location:'.SITEURL.'admin/');
     }else{
         $_SESSION['login']="<div class='error'>Username or Password not Correct</div>";

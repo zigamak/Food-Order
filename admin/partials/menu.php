@@ -1,4 +1,13 @@
-<?php include('config/constants.php'); ?>
+<?php
+include('config/constants.php'); 
+include('login_check.php'); 
+
+
+?>
+<?php
+//Authorization
+
+?>
 <link rel="stylesheet" href="../css/admin.css">
 <!--Menu Section Starts-->
 <div class="menu text-center">
@@ -18,6 +27,9 @@
                 </li>
                 <li>
                     <a href="order.php">Order</a>
+                </li>
+                <li>
+                    <a href="logout.php">Log Out</a>
                 </li>
             </ul>
         </div>
