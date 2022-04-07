@@ -4,10 +4,7 @@ include('login_check.php');
 
 
 ?>
-<?php
-//Authorization
 
-?>
 <link rel="stylesheet" href="../css/admin.css">
 <!--Menu Section Starts-->
 <div class="menu text-center">

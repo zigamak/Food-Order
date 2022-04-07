@@ -9,7 +9,7 @@ include ("partials/menu.php")
         <h1>Category</h1>
         <br>
         <!-- Button to add Admin -->
-        <a href="#" class="btn-primary">Add Category</a>
+        <a href="<?php echo SITEURL;?>admin/add_category.php" class="btn-primary">Add Category</a>
             <br> <br> <br>
            <table class="tbl-full">
                <tr>
