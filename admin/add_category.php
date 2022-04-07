@@ -5,6 +5,12 @@ include("partials/menu.php")
     <div class="wrapper">
         <h1>Add Category</h1>
         <br><br>
+        <?php
+        if (isset($_SESSION['add'])){
+            echo ($_SESSION['add']);
+            unset ($_SESSION['add']);
+        }
+        ?>
         <form action="" method="POST">
             <table class="tbl-30">
                 <tr>
@@ -27,8 +33,45 @@ include("partials/menu.php")
                         <input type="radio" name="active" value="No">No
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="Add Category" class="btn-secondary">
+                    </td>
+                </tr>
             </table>
         </form>
+        <?php
+            if (isset($_POST['submit'])){
+                $title=$_POST['title'];
+                if (isset($_POST['featured'])){
+                    $featured=$_POST['featured'];
+                }else{
+                    $featured="No";
+                }
+
+                if (isset($_pOST['active'])){
+                    $active=$_POST['active'];
+                }else{
+                    $active="No";
+                }
+            $sql="INSERT INTO tbl_category SET
+            title=$title,
+            featured=$featured,
+            active=$active
+            ";
+
+            $res= mysqli_query($conn, $sql);
+            if ($res==true){
+                $_SESSION['add']="<div class='success'>Category Added Successfully </div>";
+                header('location:'.SITEURL.'admin/category.php');
+            }
+            else{
+                $_SESSION['add']="<div class='success'>Category Added Successfully </div>";
+                header('location:'.SITEURL.'admin/category.php');
+
+            }
+            }
+        ?>
     </div>
 </div>
 
