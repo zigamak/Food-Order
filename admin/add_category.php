@@ -49,15 +49,16 @@ include("partials/menu.php")
                     $featured="No";
                 }
 
-                if (isset($_pOST['active'])){
+                if (isset($_POST['active'])){
                     $active=$_POST['active'];
                 }else{
                     $active="No";
                 }
+            
             $sql="INSERT INTO tbl_category SET
-            title=$title,
-            featured=$featured,
-            active=$active
+            title='$title',
+            featured='$featured',
+            active='$active'
             ";
 
             $res= mysqli_query($conn, $sql);
@@ -66,11 +67,12 @@ include("partials/menu.php")
                 header('location:'.SITEURL.'admin/category.php');
             }
             else{
-                $_SESSION['add']="<div class='success'>Category Added Successfully </div>";
-                header('location:'.SITEURL.'admin/category.php');
+                $_SESSION['add']="<div class='error'>Failed to Add Category</div>";
+                header('location:'.SITEURL.'admin/add_category.php');
 
             }
-            }
+        }
+            
         ?>
     </div>
 </div>
